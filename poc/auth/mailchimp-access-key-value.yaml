@@ -1,18 +1,20 @@
 id: mailchimp-access-key-value
-
 info:
-  name: Mailchimp API Value
   author: puzzlepeaches
-  severity: info
-  tags: exposure,token,mailchimp
-
+  name: Mailchimp API Value
+  severity: medium
 requests:
-  - method: GET
-    path:
-      - "{{BaseURL}}"
-
-    extractors:
-      - type: regex
-        part: body
-        regex:
-          - "[0-9a-f]{32}-us[0-9]{1,2}"
+- extractors:
+  - part: body
+    regex:
+    - '[0-9a-f]{32}-us[0-9]{1,2}'
+    type: regex
+  matchers:
+  - part: body
+    regex:
+    - '[0-9a-f]{32}-us[0-9]{1,2}'
+    type: regex
+  matchers-condition: and
+  method: GET
+  path:
+  - '{{BaseURL}}/'
