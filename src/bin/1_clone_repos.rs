@@ -4,9 +4,11 @@ use std::fs;
 use std::io::{self, BufRead};
 use std::path::Path;
 use std::process::Stdio;
+use std::time::Duration;
 use tokio::process::Command;
 use std::sync::Arc;
 use tokio::sync::Semaphore;
+use tokio::time::timeout;
 use tracing::{error, info, warn};
 
 /// 并发克隆或更新仓库，并限制并发数。
@@ -35,6 +37,16 @@ fn main() -> anyhow::Result<()> {
 
 async fn async_main(args: Args, jobs_final: usize) -> anyhow::Result<()> {
     tracing_subscriber::fmt::init();
+
+    // 预检查：git 是否可用
+    match which::which("git") {
+        Ok(path) => info!(git = %path.display(), "git 可用"),
+        Err(e) => {
+            error!(error = %e, "git 未找到，请安装 git 后重试");
+            return Err(anyhow::anyhow!("git not found: {}", e));
+        }
+    }
+
     let repo_file = args.repo_file;
     let clone_dir = args.clone_dir;
     let jobs = jobs_final;
@@ -70,10 +82,22 @@ async fn async_main(args: Args, jobs_final: usize) -> anyhow::Result<()> {
                     cmd.arg("-C").arg(&target_dir).arg("pull");
                     cmd.stdout(Stdio::null());
                     cmd.stderr(Stdio::piped());
-                    match cmd.status().await {
-                        Ok(status) if status.success() => info!(repo = %repo_name, "拉取完成"),
-                        Ok(status) => warn!(repo = %repo_name, code = ?status.code(), "git pull 失败"),
-                        Err(e) => error!(repo = %repo_name, error = %e, "git pull 错误"),
+                    cmd.kill_on_drop(true);
+                    match timeout(Duration::from_secs(120), cmd.output()).await {
+                        Ok(Ok(output)) if output.status.success() => {
+                            info!(repo = %repo_name, "拉取完成");
+                        }
+                        Ok(Ok(output)) => {
+                            let stderr = String::from_utf8_lossy(&output.stderr);
+                            let stderr_short: String = stderr.lines().take(5).collect::<Vec<_>>().join(" | ");
+                            warn!(repo = %repo_name, code = ?output.status.code(), stderr = %stderr_short, "git pull 失败");
+                        }
+                        Ok(Err(e)) => {
+                            error!(repo = %repo_name, error = %e, "git pull 错误");
+                        }
+                        Err(_elapsed) => {
+                            warn!(repo = %repo_name, "git pull 超时 (120s)");
+                        }
                     }
                 } else {
                     info!(repo = %repo_name, path = %target_dir, "开始克隆");
@@ -82,10 +106,22 @@ async fn async_main(args: Args, jobs_final: usize) -> anyhow::Result<()> {
                     cmd.arg("clone").arg(&url_clone).arg(&target_dir);
                     cmd.stdout(Stdio::null());
                     cmd.stderr(Stdio::piped());
-                    match cmd.status().await {
-                        Ok(status) if status.success() => info!(repo = %repo_name, "克隆完成"),
-                        Ok(status) => warn!(repo = %repo_name, code = ?status.code(), "git clone 失败"),
-                        Err(e) => error!(repo = %repo_name, error = %e, "git clone 错误"),
+                    cmd.kill_on_drop(true);
+                    match timeout(Duration::from_secs(120), cmd.output()).await {
+                        Ok(Ok(output)) if output.status.success() => {
+                            info!(repo = %repo_name, "克隆完成");
+                        }
+                        Ok(Ok(output)) => {
+                            let stderr = String::from_utf8_lossy(&output.stderr);
+                            let stderr_short: String = stderr.lines().take(5).collect::<Vec<_>>().join(" | ");
+                            warn!(repo = %repo_name, code = ?output.status.code(), stderr = %stderr_short, "git clone 失败");
+                        }
+                        Ok(Err(e)) => {
+                            error!(repo = %repo_name, error = %e, "git clone 错误");
+                        }
+                        Err(_elapsed) => {
+                            warn!(repo = %repo_name, "git clone 超时 (120s)");
+                        }
                     }
                 }
             } else { warn!(url = %url_clone, "URL 无效") }

@@ -1,5 +1,5 @@
 use anyhow::{Context, Result};
-use sha2::{Digest, Sha256};
+use nuclei_poc::core::hash;
 use std::collections::HashSet;
 use std::fs;
 use std::io::Read;
@@ -95,14 +95,14 @@ fn score_yaml(yaml: &Value) -> i32 {
 
 fn main() -> Result<()> {
     let args = Args::parse();
-    let src_root = Path::new("poc_all");
-    let dst_root = Path::new("poc_high_quality");
+    let src_root = Path::new("poc");
+    let dst_root = Path::new("poc_baseline");
 
     // 每次运行清理目标目录
     if dst_root.exists() {
-        fs::remove_dir_all(dst_root).context("Failed to remove poc_high_quality directory")?;
+        fs::remove_dir_all(dst_root).context("Failed to remove poc_baseline directory")?;
     }
-    fs::create_dir_all(dst_root).context("Failed to create poc_high_quality directory")?;
+    fs::create_dir_all(dst_root).context("Failed to create poc_baseline directory")?;
 
     // 收集所有源文件
     let files: Vec<PathBuf> = WalkDir::new(src_root)
@@ -130,7 +130,7 @@ fn main() -> Result<()> {
                     if let Err(_) = f.read_to_end(&mut buf) {
                         reasons.push("read failed".to_string());
                     } else {
-                        hash = format!("{:x}", Sha256::digest(&buf));
+                        hash = hash::hash_bytes(&buf);
                         match serde_yaml::from_slice::<Value>(&buf) {
                             Ok(v) => {
                                 score = score_yaml(&v);

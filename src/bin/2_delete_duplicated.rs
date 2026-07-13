@@ -1,17 +1,8 @@
-use anyhow::Context;
-use std::env;
-use sha2::{Digest, Sha256};
+use nuclei_poc::core::hash;
 use std::collections::HashMap;
+use std::env;
 use std::fs;
 use walkdir::WalkDir;
-
-fn calculate_file_hash(path: &std::path::Path) -> anyhow::Result<String> {
-    let mut hasher = Sha256::new();
-    let mut file = fs::File::open(path)
-        .with_context(|| format!("failed to open file for hashing: {:?}", path))?;
-    std::io::copy(&mut file, &mut hasher)?;
-    Ok(format!("{:x}", hasher.finalize()))
-}
 
 fn find_and_remove_duplicates(directory: &str) -> anyhow::Result<()> {
     let mut hash_map: HashMap<String, String> = HashMap::new();
@@ -20,7 +11,7 @@ fn find_and_remove_duplicates(directory: &str) -> anyhow::Result<()> {
             let filename = entry.file_name().to_str().unwrap_or_default();
             if filename.ends_with(".yml") || filename.ends_with(".yaml") {
                 let path = entry.path();
-                let file_hash = calculate_file_hash(path)?;
+                let file_hash = hash::hash_file(path)?;
                 if let Some(_prev) = hash_map.get(&file_hash) {
                     println!("删除重复文件: {:?}", path);
                     fs::remove_file(path)?;

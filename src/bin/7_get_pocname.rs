@@ -1,26 +1,41 @@
-use std::fs::File;
-use std::io::{BufWriter, Write};
-use walkdir::WalkDir;
+use clap::Parser;
+use nuclei_poc::core::{category, index};
+
+#[derive(Parser, Debug)]
+#[command(name = "7_get_pocname", about = "Generate poc_index.json + poc.txt from the poc/ directory")]
+struct Args {
+    /// Directory to index (default: poc)
+    #[arg(long, default_value = "poc")]
+    poc_dir: String,
+
+    /// Output directory for index files (default: .)
+    #[arg(long, default_value = ".")]
+    output_dir: String,
+}
 
 fn main() -> anyhow::Result<()> {
-    let mut files: Vec<_> = WalkDir::new(".")
-        .into_iter()
-        .filter_map(|e| e.ok())
-        .filter(|e| e.file_type().is_file())
-        .filter(|e| {
-            let name = e.file_name().to_string_lossy().to_lowercase();
-            name.ends_with(".yml") || name.ends_with(".yaml")
-        })
-        .map(|e| e.path().to_path_buf())
-        .collect();
+    let args = Args::parse();
+    let cmap = category::category_map();
 
-    files.sort_unstable();
+    let (entries, category_counts) =
+        index::generate_index(&args.poc_dir, &args.output_dir, &cmap)?;
 
-    let f = File::create("poc.txt")?;
-    let mut w = BufWriter::new(f);
-    for p in files.into_iter() {
-        writeln!(w, "{}", p.display())?;
+    // Also write plain poc.txt for backward compatibility
+    index::write_poc_txt(&args.output_dir, &entries)?;
+    println!("  poc.txt 已生成: {} 条记录", entries.len());
+
+    // Write summary JSON
+    index::write_summary_json(&args.output_dir, entries.len(), &category_counts)?;
+    println!("  poc_summary.json 已生成");
+
+    // Print top categories
+    println!("\n分类统计:");
+    let mut sorted: Vec<_> = category_counts.iter().collect();
+    sorted.sort_by(|a, b| b.1.cmp(a.1));
+    for (cat, count) in sorted.iter().take(15) {
+        println!("  {}: {}", cat, count);
     }
+
     Ok(())
 }
 

@@ -1,13 +1,9 @@
-// 此处不需要 anyhow::Context
-use sha2::{Digest, Sha256};
-// 使用 dashmap 进行无锁并发映射
+use nuclei_poc::core::{hash, yaml};
 use std::fs;
-use std::io::Read;
 use std::path::{Path, PathBuf};
 use std::time::{Duration, Instant};
 use walkdir::WalkDir;
 use clap::Parser;
-// use std::process::Command;
 use tokio::fs as tokio_fs;
 use tokio::sync::Semaphore;
 use std::sync::Arc;
@@ -16,19 +12,31 @@ use tracing::{error, warn, info};
 use dashmap::DashMap;
 
 // 默认目录
-const DEFAULT_POC_DIR: &str = "poc_all";
+const DEFAULT_POC_DIR: &str = "poc";
 const DEFAULT_TMP_DIR: &str = "tmp";
+
+/// Directory for files that fail nuclei validation — kept for manual review
+/// instead of being deleted.
+const REVIEW_DIR: &str = "poc_needs_review";
 
 fn ensure_dir(path: &str) -> anyhow::Result<()> {
     fs::create_dir_all(path)?;
     Ok(())
 }
 
-fn safe_remove(path: &Path) -> anyhow::Result<()> {
-    if path.exists() {
-        fs::remove_file(path)?;
-        println!("poc校验失败，已删除文件: {:?}", path);
+/// Move a file that failed nuclei validation to the review directory instead
+/// of deleting it.  Keeps the original directory structure for traceability.
+fn move_to_review(src: &Path, review_dir: &str) -> anyhow::Result<()> {
+    // Preserve relative path under review_dir so we know where it came from.
+    // Strip the tmp/ prefix if present, otherwise use the full path.
+    let rel = src
+        .strip_prefix("tmp")
+        .unwrap_or(src);
+    let dest = Path::new(review_dir).join(rel);
+    if let Some(parent) = dest.parent() {
+        fs::create_dir_all(parent)?;
     }
+    fs::rename(src, &dest)?;
     Ok(())
 }
 
@@ -60,18 +68,7 @@ fn move_file_blocking(src: &Path, dest: &Path) -> anyhow::Result<()> {
     Ok(())
 }
 
-// 注：主流程改为异步调用 nuclei
-fn get_file_hash(path: &Path) -> anyhow::Result<String> {
-    let mut file = fs::File::open(path)?;
-    let mut hasher = Sha256::new();
-    let mut buf = [0u8; 4096];
-    loop {
-        let n = file.read(&mut buf)?;
-        if n == 0 { break; }
-        hasher.update(&buf[..n]);
-    }
-    Ok(format!("{:x}", hasher.finalize()))
-}
+
 
 #[derive(Parser, Debug)]
 struct Args {
@@ -154,13 +151,34 @@ async fn async_main(args: Args, jobs_final: usize) -> anyhow::Result<()> {
             let _permit = sem_clone.acquire_owned().await.unwrap();
             // compute hash in blocking thread
             let df_hash = df.clone();
-            let file_hash = tokio::task::spawn_blocking(move || get_file_hash(&df_hash)).await??;
-            // check duplicates
+            let file_hash = tokio::task::spawn_blocking(move || hash::hash_file(&df_hash)).await??;
+            // check duplicates (exact hash match → safe to remove)
             if pach.contains_key(&file_hash) {
                 let df_rm = df.clone();
-                let _ = tokio::task::spawn_blocking(move || safe_remove(&df_rm)).await?;
+                let _ = tokio::task::spawn_blocking(move || {
+                    if df_rm.exists() { fs::remove_file(&df_rm)?; }
+                    Ok::<_, anyhow::Error>(())
+                }).await?;
                 return Ok::<(), anyhow::Error>(());
             }
+
+            // --- Apply auto-fix BEFORE nuclei validation ---
+            // Fixes severity casing, empty severity, CVE/CNVD ID spacing.
+            // This turns fixable failures into successes instead of
+            // unnecessarily quarantining the file.
+            let df_fix = df.clone();
+            let fix_stats = tokio::task::spawn_blocking(move || -> anyhow::Result<yaml::FixStats> {
+                let content = fs::read_to_string(&df_fix)?;
+                let (fixed_content, stats) = yaml::auto_fix_poc(&content);
+                if stats.total_fixed > 0 {
+                    fs::write(&df_fix, fixed_content.as_bytes())?;
+                }
+                Ok(stats)
+            }).await??;
+            if fix_stats.total_fixed > 0 {
+                info!("auto-fixed {:?}: {:?}", df.file_name(), fix_stats);
+            }
+
             // validate yaml (blocking)
             let df_check = df.clone();
             let nuclei_bin_check = nuclei_bin.clone();
@@ -192,8 +210,10 @@ async fn async_main(args: Args, jobs_final: usize) -> anyhow::Result<()> {
                 }
             };
             if !valid {
-                let df_rm = df.clone();
-                let _ = tokio::task::spawn_blocking(move || safe_remove(&df_rm)).await?;
+                let df_quarantine = df.clone();
+                let review_dir = REVIEW_DIR.to_string();
+                let _ = tokio::task::spawn_blocking(move || move_to_review(&df_quarantine, &review_dir)).await?;
+                warn!("nuclei validation failed, moved to review: {:?}", df.file_name());
                 return Ok::<(), anyhow::Error>(());
             }
             // insert hash and move file to poc
