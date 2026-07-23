@@ -1,11 +1,14 @@
 id: ipp
 info:
-  name: Easy Software Products CUPS
+  name: Epson ippd
   author: nmap,cn-kali-team
   tags: detect,tech,ipp,service
   severity: info
   metadata:
+    device_type: printer
+    info: AL-C2800 printer
     rarity: 1
+    version: $1
 tcp:
 - name: get-request
   inputs:
@@ -17,4 +20,4 @@ tcp:
   - name: ipp
     type: regex
     regex:
-    - (?i)^HTTP/1\.0 \d\d\d .*<TITLE>Common UNIX Printing System</TITLE>.*HREF=\"http://www\.easysw\.com\" ALT=\"Easy Software Products Home Page\">\n
+    - '^HTTP/1\.1 411 Length Required\r\nSERVER: EpsonNet IPP-SERVER/([\w._-]+)\r\nCONTENT-LENGTH: 0\r\n\r\n'

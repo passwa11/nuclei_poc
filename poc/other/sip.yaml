@@ -1,16 +1,14 @@
 id: sip
 info:
-  name: Patton SmartNode $1 VoIP adapter http config
+  name: NEC SL1100 VoIP PBX
   author: nmap,cn-kali-team
   tags: detect,tech,sip,service
   severity: info
   metadata:
-    device_type: VoIP adapter
+    device_type: PBX
     fallback:
     - get-request
-    operating_system: SmartWare $3
     rarity: 5
-    version: $2 $4
 tcp:
 - name: sipoptions
   inputs:
@@ -22,4 +20,4 @@ tcp:
   - name: sip
     type: regex
     regex:
-    - '(?i)^SIP/2\.0 405 Method Not Allowed\r\n(?:[^\r\n]+\r\n)*?User-Agent: Patton SN(\w+) 5BIS MxSF v([\w._-]+) [0-9A-F]+ R([\w._-]+) (\d\d\d\d-\d\d-\d\d) H323 SIP BRI\r\n\r\n'
+    - '^SIP/2\.0 403 Forbidden\r\nContent-Type: application/X-NECSIPEXT2MLv1\r\nSupported: timer\r\nFrom: <sip:nm@nm>;tag=root\r\nTo: <sip:nm2@nm2>;tag=\w+\r\nCall-ID: 50000\r\nCSeq: 42 OPTIONS\r\nVia: SIP/2\.0/TCP nm;branch=foo;received=[\d.]+\r\nContent-Length: 99\r\n\r\nInd-ErrDsp=nec-code: 1:Non-Registered Access       ,2: \(Retry after    10 sec\)    ,6:1: EXIT  ,10\r\n'

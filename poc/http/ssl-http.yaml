@@ -1,12 +1,16 @@
 id: ssl/http
 info:
-  name: ExpertAssist
+  name: Apache httpd
   author: nmap,cn-kali-team
   tags: detect,tech,ssl/http,service
   severity: info
   metadata:
-    info: ScriptLogic Remote Desktop
+    hostname: $3
+    info: $2; SSL-only mode
+    product: http_server
     rarity: 1
+    vendor: apache
+    verified: true
     version: $1
 tcp:
 - name: get-request
@@ -19,4 +23,4 @@ tcp:
   - name: ssl/http
     type: regex
     regex:
-    - '^HTTP/1\.0 302 Moved Temporarily\r\nAccept-Ranges: none\r\nConnection: close\r\nContent-Length: 0\r\nContent-Type: application/octet-stream\r\nDate: .*\r\nLocation: https://[^/]*/\r\nServer: ExpertAssist/([\w._-]+)\r\n'
+    - '(?i)^<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2\.0//EN\">\n<html><head>\n<title>400 Bad Request</title>\n</head><body>\n<h1>Bad Request</h1>\n<p>Your browser sent a request that this server could not understand\.<br />\nReason: You''re speaking plain HTTP to an SSL-enabled server port\.<br />\n.*<address>Apache/([\w._-]+) (.*) Server at ([\w._*-]+) Port \d+</address>'

@@ -5,7 +5,7 @@ info:
   tags: detect,tech,qotd,service
   severity: info
   metadata:
-    info: Italian
+    info: Czech
     operating_system: Windows
     product: qotd
     rarity: 1
@@ -22,4 +22,4 @@ tcp:
   - name: qotd
     type: regex
     regex:
-    - ^.(?:Voce dal sen fuggita|Semel in anno licet insanire|Cosa bella e mortal passa e non dura|Quando uno stupido compie qualcosa di cui si vergogna,|Se tu pagare come dici tu,|Fatti non foste a viver come bruti,|Sperare senza far niente e` come)
+    - ^"(?:Clovek ma tri cesty, jak moudre jednat\. Nejprve premyslenim|Co je vubec hodno toho, aby to bylo vykonano,|Fantazie je dulezitejsi nez vedeni\.|Potize narustaji, cim vice se clovek blizi|Kdo nezna pristav, do ktereho se chce plavit,|Lidske mysleni ztraci smysl,|Nikdo nevi, co muze vykonat,|Nic neprekvapi lidi vice nez zdravy rozum|Zadny cil neni tak vysoky,)

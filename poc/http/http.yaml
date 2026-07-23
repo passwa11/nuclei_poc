@@ -1,15 +1,14 @@
 id: http
 info:
-  name: WildFly Application Server
+  name: Embedded HTTP Server
   author: nmap,cn-kali-team
   tags: detect,tech,http,service
   severity: info
   metadata:
-    product: wildfly
+    device_type: router
+    info: USRobotics router http config; name $2
     rarity: 1
-    vendor: redhat
-    verified: true
-    version: 15.0.0 - 29.0.1
+    version: $1
 tcp:
 - name: get-request
   inputs:
@@ -21,4 +20,4 @@ tcp:
   - name: http
     type: regex
     regex:
-    - '^HTTP/1\.1 200 OK\r\nConnection: close\r\nLast-Modified: .*\r\nContent-Length: \d+\r\nContent-Type: text/html\r\nAccept-Ranges: bytes\r\nDate: .*\r\n\r\n<!DOCTYPE html>\n\n<html>\n<head>\n    <!-- proper charset -->\n    <meta http-equiv="content-type" content="text/html;charset=utf-8" />\n    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />\n\n    <title>Welcome to WildFly</title>'
+    - '^HTTP/1\.0 \d\d\d .*\r\nServer: Embedded HTTP Server USR([\w._-]+)\r\nWWW-Authenticate: Basic realm=\"([^"]+)\"\r\nConnection: close\r\n\r\n<'

@@ -1,10 +1,11 @@
 id: login
 info:
-  name: Digi EtherLite32 logind
+  name: ShoreTel VoIP phone logind
   author: nmap,cn-kali-team
   tags: detect,tech,login,service
   severity: info
   metadata:
+    device_type: VoIP phone
     fallback:
     - dnsversion-bind-req
     rarity: 3
@@ -19,4 +20,4 @@ tcp:
   - name: login
     type: regex
     regex:
-    - ^\x00\r\nEL-32 EtherLite module\r\n\r\n
+    - '^\x00\^A\^@\^@\^@\^@\^@\^@\^Gversion\^Dbind\^@\^@\^P\^@\r\n-> shell restarted\.\r\n\r\n-> '
