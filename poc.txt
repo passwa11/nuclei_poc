@@ -672992,6 +672992,7 @@
 ./poc/cve/CVE-2026-8622-image_sizes_on_demand-ebcbb7bf-99fd-4a74-a4d3-eabf9edcadc4.yaml
 ./poc/cve/CVE-2026-8623-3d_flipbook_dflip_lite-27e2848d-6271-4bb9-92e2-0f8c8860745d.yaml
 ./poc/cve/CVE-2026-8624-lj_comments_import_reloaded-0f09cb59-dbbb-48a3-aeac-377f6ec87b88.yaml
+./poc/cve/CVE-2026-86242.yaml
 ./poc/cve/CVE-2026-8625-3d_flipbook_dflip_lite-741150a3-1b2a-4b54-9dd5-992d3d7079dc.yaml
 ./poc/cve/CVE-2026-8626-sponsorme-7df7f541-b8aa-46fa-bfca-b333beea27f9.yaml
 ./poc/cve/CVE-2026-8627-correct_prices-605c6c53-6920-42ba-8784-b3a186bbf821.yaml
@@ -1108557,6 +1108558,7 @@
 ./poc/sql/weaver-ecology-hrmcareer-sqli_3.yaml
 ./poc/sql/weaver-ecology-workflowservicexml-sqli.yaml
 ./poc/sql/weaver-ecology-workflowservicexml-sqli_1.yaml
+./poc/sql/weaver-ecology9-doc-list-sqli.yaml
 ./poc/sql/weaver-ecology9-filedownloadlocation-sqli.yaml
 ./poc/sql/weaver-eoffice-leave-record-sqli.yaml
 ./poc/sql/weaver-group-xml-sqli.yaml
@@ -1118380,6 +1118382,7 @@
 ./poc/sql_injection/weaver-ecology-hrmcareer-sqli_3.yaml
 ./poc/sql_injection/weaver-ecology-workflowservicexml-sqli.yaml
 ./poc/sql_injection/weaver-ecology-workflowservicexml-sqli_1.yaml
+./poc/sql_injection/weaver-ecology9-doc-list-sqli.yaml
 ./poc/sql_injection/weaver-ecology9-filedownloadlocation-sqli.yaml
 ./poc/sql_injection/weaver-eoffice-leave-record-sqli.yaml
 ./poc/sql_injection/weaver-group-xml-sqli.yaml
