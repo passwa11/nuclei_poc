@@ -2808,6 +2808,8 @@
 ./poc/apache/apache-shiro_3.yaml
 ./poc/apache/apache-skywalking-dashboard.yaml
 ./poc/apache/apache-skywalking-dashboard_1.yaml
+./poc/apache/apache-skywalking-horizon-ui-config.yaml
+./poc/apache/apache-skywalking-horizon-ui-detect.yaml
 ./poc/apache/apache-skywalking.yaml
 ./poc/apache/apache-skywalking_1.yaml
 ./poc/apache/apache-skywalking_2.yaml
@@ -22744,6 +22746,7 @@
 ./poc/auth/jupyterhub-default-login_5.yaml
 ./poc/auth/jwt-algorithm-confusion.yaml
 ./poc/auth/jwt-algorithm-confusion_1.yaml
+./poc/auth/jwt-algorithm-none-bypass.yaml
 ./poc/auth/jwt-auth-095adf04b2058ec616033a7aa2b24d07.yaml
 ./poc/auth/jwt-auth-095adf04b2058ec616033a7aa2b24d07_2.yaml
 ./poc/auth/jwt-auth-095adf04b2058ec616033a7aa2b24d07_3.yaml
@@ -29649,6 +29652,7 @@
 ./poc/auth/redis-require-auth_1.yaml
 ./poc/auth/redis-require-auth_2.yaml
 ./poc/auth/redis-require-auth_3.yaml
+./poc/auth/redis-unauthenticated-access.yaml
 ./poc/auth/redis-unauthorized.yaml
 ./poc/auth/redis-weak-credentials.yaml
 ./poc/auth/redis-weak-login.yaml
@@ -46808,6 +46812,7 @@
 ./poc/config/apache-pinot-config_1.yaml
 ./poc/config/apache-pinot-config_2.yaml
 ./poc/config/apache-pinot-config_3.yaml
+./poc/config/apache-skywalking-horizon-ui-config.yaml
 ./poc/config/api-iconfinder-438.yaml
 ./poc/config/api-iconfinder-439.yaml
 ./poc/config/api-iconfinder-439_1.yaml
@@ -49406,6 +49411,7 @@
 ./poc/config/redis-config-exposure.yaml
 ./poc/config/redis-config-exposure_1.yaml
 ./poc/config/redis-config-exposure_2.yaml
+./poc/config/redis-config-write.yaml
 ./poc/config/redis-config.yaml
 ./poc/config/redis-config_1.yaml
 ./poc/config/redis-config_1_1.yaml
@@ -670607,6 +670613,7 @@
 ./poc/cve/CVE-2026-49770-wp_travel_engine-a28f9860-395d-4087-9e0d-cf0332aba39f.yaml
 ./poc/cve/CVE-2026-49771-photo_gallery-4a82c911-71aa-4f6c-8088-7b839e027a6a.yaml
 ./poc/cve/CVE-2026-49772-the_events_calendar-c2a3076b-f5dc-4d93-b0a5-7121ba4e529a.yaml
+./poc/cve/CVE-2026-49772.yaml
 ./poc/cve/CVE-2026-49773-fv_wordpress_flowplayer-d58fe116-0896-46b5-a120-d0fde9680ff1.yaml
 ./poc/cve/CVE-2026-49774-integracao_rd_station-ef1d1ae6-3019-4e48-911e-5f805f8089ca.yaml
 ./poc/cve/CVE-2026-49775-usc_e_shop-5a1391b1-b0c3-4cf4-8850-d9367d90ec9e.yaml
@@ -673152,6 +673159,8 @@
 ./poc/cve/CVE-2026-82607-profile_builder-87287221-ee9b-4ca2-bb35-f8945cd58ce7.yaml
 ./poc/cve/CVE-2026-82627-uncanny_automator-ce918263-dc4a-4db1-a506-a9e6c8125741.yaml
 ./poc/cve/CVE-2026-8279-learning_management_system-d317d40b-2b99-408b-b445-1a789df3c958.yaml
+./poc/cve/CVE-2026-82814-duplicator-767fb03a-58a3-464b-98b2-5378cfec09ae.yaml
+./poc/cve/CVE-2026-82814-duplicator_pro-767fb03a-58a3-464b-98b2-5378cfec09ae.yaml
 ./poc/cve/CVE-2026-82841-updraftplus-66944a3c-180b-4769-aea6-3d04b8b0544b.yaml
 ./poc/cve/CVE-2026-82842-miniorange_saml_20_single_sign_on-3a9f5602-f798-4beb-a3e7-06338f817ce2.yaml
 ./poc/cve/CVE-2026-82843-miniorange_oauth_20_server-0e1fb4b5-7020-4228-8831-324bbf748c51.yaml
@@ -691996,6 +692005,7 @@
 ./poc/cve/rconfig-cve-2019-16663.yaml
 ./poc/cve/rconfig-cve-2019-16663.yml
 ./poc/cve/rconfig-cve-2019-16663_1.yaml
+./poc/cve/redis-cve-2022-0543-sandbox-escape.yaml
 ./poc/cve/rocketmq-namesrv-cve-2023-37582-unauth.yml
 ./poc/cve/saltstack-cve-2020-16846.yaml
 ./poc/cve/saltstack-cve-2020-16846.yml
@@ -692035,6 +692045,7 @@
 ./poc/cve/spring4shell-CVE-2022-22965.yaml
 ./poc/cve/spring4shell-CVE-2022-22965_1.yaml
 ./poc/cve/spring4shell-CVE-2022-22965_2.yaml
+./poc/cve/spring4shell-cve-2022-22965.yaml
 ./poc/cve/springForShell-CVE-2022-22963.yaml
 ./poc/cve/springForShell-CVE-2022-22965.yaml
 ./poc/cve/spring_cloud_gateway_CVE_2022_22947.yaml
@@ -693405,6 +693416,9 @@
 ./poc/debug/werkzeug-debug (copy 1)_1.yaml
 ./poc/debug/werkzeug-debug (copy 1)_2.yaml
 ./poc/debug/werkzeug-debug (copy 1)_3.yaml
+./poc/debug/werkzeug-debug-console-exposed.yaml
+./poc/debug/werkzeug-debug-console-rce.yaml
+./poc/debug/werkzeug-debug-pin-computable.yaml
 ./poc/debug/werkzeug-debug.yaml
 ./poc/debug/werkzeug-debug_1.yaml
 ./poc/debug/werkzeug-debug_1_1.yaml
@@ -700743,6 +700757,7 @@
 ./poc/detect/apache-shenyu-detect_2.yaml
 ./poc/detect/apache-shenyu-detect_3.yaml
 ./poc/detect/apache-shenyu-detect_4.yaml
+./poc/detect/apache-skywalking-horizon-ui-detect.yaml
 ./poc/detect/apache-sling-detect.yaml
 ./poc/detect/apache-solr-detect.yaml
 ./poc/detect/apache-solr-detect_2.yaml
@@ -712213,6 +712228,7 @@
 ./poc/detect/waf-detect_7.yaml
 ./poc/detect/waf-detect_8.yaml
 ./poc/detect/waf-detect_9.yaml
+./poc/detect/waf-fingerprint-detection.yaml
 ./poc/detect/wagtail-cms-detect.yaml
 ./poc/detect/wagtail-cms-detect_1.yaml
 ./poc/detect/wagtail-cms-detect_1_1.yaml
@@ -713656,6 +713672,7 @@
 ./poc/directory_listing/path-traversal-accept-passwd_1.yaml
 ./poc/directory_listing/path-traversal-exposure.yaml
 ./poc/directory_listing/path-traversal-package.yaml
+./poc/directory_listing/path-traversal-waf-bypass-encoding.yaml
 ./poc/directory_listing/path-traversal.yaml
 ./poc/directory_listing/path-traversal_1.yaml
 ./poc/directory_listing/path-traversal_1_1.yaml
@@ -718149,6 +718166,7 @@
 ./poc/exposed/doorgets-info-disclosure_4.yaml
 ./poc/exposed/dot-credentials-exposure.yaml
 ./poc/exposed/dot-credentials-exposure_1.yaml
+./poc/exposed/dotenv-file-exposure.yaml
 ./poc/exposed/druid-console-exposure-7092.yaml
 ./poc/exposed/druid-console-exposure-7092_1.yaml
 ./poc/exposed/druid-console-exposure-7093.yaml
@@ -722203,6 +722221,7 @@
 ./poc/exposed/webpack-sourcemap-disclosure_3.yaml
 ./poc/exposed/weglot-api-key-exposure.yaml
 ./poc/exposed/weglot-api-key-exposure_1.yaml
+./poc/exposed/werkzeug-debug-console-exposed.yaml
 ./poc/exposed/wget-hsts-list-exposure.yaml
 ./poc/exposed/wget-hsts-list-exposure_1.yaml
 ./poc/exposed/wget-hsts-list-exposure_1_1.yaml
@@ -736941,6 +736960,7 @@
 ./poc/injection/python-code-injection_1.yaml
 ./poc/injection/python-code-injection_2.yaml
 ./poc/injection/python-code-injection_3.yaml
+./poc/injection/python-eval-code-injection.yaml
 ./poc/injection/rails-host-injection.yaml
 ./poc/injection/rce-injection-uri.yaml
 ./poc/injection/realor-gwt-system-sql-injection.yaml
@@ -737038,6 +737058,7 @@
 ./poc/injection/stealth-media-ltd-sql-injection_1.yaml
 ./poc/injection/stealth-media-ltd-sql-injection_1_1.yaml
 ./poc/injection/stealth-media-ltd-sql-injection_3.yaml
+./poc/injection/struts2-s2-001-ognl-injection.yaml
 ./poc/injection/swagger-ui-config-url-injection-Extensive.yaml
 ./poc/injection/synotec-holdings-sql-injection.yaml
 ./poc/injection/synotec-holdings-sql-injection_1.yaml
@@ -738681,6 +738702,7 @@
 ./poc/java/spring4shell-CVE-2022-22965.yaml
 ./poc/java/spring4shell-CVE-2022-22965_1.yaml
 ./poc/java/spring4shell-CVE-2022-22965_2.yaml
+./poc/java/spring4shell-cve-2022-22965.yaml
 ./poc/java/springForShell-CVE-2022-22963.yaml
 ./poc/java/springForShell-CVE-2022-22965.yaml
 ./poc/java/spring_blade_sqli.yaml
@@ -739517,6 +739539,7 @@
 ./poc/java/struts-problem-report_4.yaml
 ./poc/java/struts.yaml
 ./poc/java/struts2-rce-login-action.yaml
+./poc/java/struts2-s2-001-ognl-injection.yaml
 ./poc/java/struts2_001.yaml
 ./poc/java/struts2_001_1.yaml
 ./poc/java/struts2_001_1_1.yaml
@@ -743007,6 +743030,7 @@
 ./poc/javascript/source-maps-js_2.yaml
 ./poc/javascript/source-maps-js_3.yaml
 ./poc/javascript/sqli-error-based-detection-json.yaml
+./poc/javascript/sqli-json-body-differential.yaml
 ./poc/javascript/ssrf-nextjs-image.yaml
 ./poc/javascript/ssrf-nextjs-image_1.yaml
 ./poc/javascript/ssrf-nextjs-image_3.yaml
@@ -768279,6 +768303,7 @@
 ./poc/open_redirect/sap-redirect_5.yaml
 ./poc/open_redirect/sap-redirect_6.yaml
 ./poc/open_redirect/sap-redirect_7.yaml
+./poc/open_redirect/sap-redirect_nagli.yaml
 ./poc/open_redirect/seatreg-redirect.yaml
 ./poc/open_redirect/seatreg-redirect_1.yaml
 ./poc/open_redirect/seatreg-redirect_1_1.yaml
@@ -866658,6 +866683,7 @@
 ./poc/other/dokploy-installer_3.yaml
 ./poc/other/dokploy-panel.yaml
 ./poc/other/dokploy-panel_1.yaml
+./poc/other/dokploy.yaml
 ./poc/other/dokuwiki-installer.yaml
 ./poc/other/dokuwiki-installer_1.yaml
 ./poc/other/dokuwiki-installer_1_1.yaml
@@ -869702,6 +869728,7 @@
 ./poc/other/duplicator-49f275061f2c62e9cd0680943bdc5685_1.yaml
 ./poc/other/duplicator-49f275061f2c62e9cd0680943bdc5685_2.yaml
 ./poc/other/duplicator-66342d25dc10ebabcc2b8c59843fea9c.yaml
+./poc/other/duplicator-767fb03a-58a3-464b-98b2-5378cfec09ae.yaml
 ./poc/other/duplicator-8391f19b7ef78e673cb65c81777f044b.yaml
 ./poc/other/duplicator-8391f19b7ef78e673cb65c81777f044b_1.yaml
 ./poc/other/duplicator-8391f19b7ef78e673cb65c81777f044b_2.yaml
@@ -869787,6 +869814,7 @@
 ./poc/other/duplicator_9.yaml
 ./poc/other/duplicator_pro-1426bebe-d3c4-4f83-9b50-fae8c2373209.yaml
 ./poc/other/duplicator_pro-1426bebe-d3c4-4f83-9b50-fae8c2373209_1.yaml
+./poc/other/duplicator_pro-767fb03a-58a3-464b-98b2-5378cfec09ae.yaml
 ./poc/other/duplicator_pro-b3f7a88c-a09b-46ac-b345-139c2d20a3d2.yaml
 ./poc/other/duplicator_pro-b3f7a88c-a09b-46ac-b345-139c2d20a3d2_1.yaml
 ./poc/other/duplicator_pro-f9ae9aba-fa0e-4a3d-a970-e45216685cc0.yaml
@@ -958620,6 +958648,7 @@
 ./poc/other/profile_builder-1b07c449-eea5-4bf6-98a7-747358b423ee.yaml
 ./poc/other/profile_builder-1bd80ab9-260a-46c5-949e-c1d5dcb32523.yaml
 ./poc/other/profile_builder-21618fba-3f57-43b2-b9ea-13484301755d.yaml
+./poc/other/profile_builder-21931b7b-3c3d-4297-878e-bc0f187557a0.yaml
 ./poc/other/profile_builder-23caef95-36b6-40aa-8dd7-51a376790a40.yaml
 ./poc/other/profile_builder-2c9fa6f9-a549-4629-862f-f9a47b13aa59.yaml
 ./poc/other/profile_builder-2caed42f-fb5b-488a-af15-f5ad3d82a68c.yaml
@@ -1030853,6 +1030882,7 @@
 ./poc/python/django-orm-leak_1_1.yaml
 ./poc/python/django-orm-leak_2.yaml
 ./poc/python/django-orm-leak_3.yaml
+./poc/python/django-orm-sqli-order-by.yaml
 ./poc/python/django-rest-framework.yaml
 ./poc/python/django-rest-framework_1.yaml
 ./poc/python/django-rest-framework_2.yaml
@@ -1031001,6 +1031031,7 @@
 ./poc/python/python-code-injection_1.yaml
 ./poc/python/python-code-injection_2.yaml
 ./poc/python/python-code-injection_3.yaml
+./poc/python/python-eval-code-injection.yaml
 ./poc/python/python-history-disclosure.yaml
 ./poc/python/python-history-disclosure_1.yaml
 ./poc/python/python-httpserver-detect.yaml
@@ -1031327,6 +1031358,7 @@
 ./poc/redis/redis-config-exposure.yaml
 ./poc/redis/redis-config-exposure_1.yaml
 ./poc/redis/redis-config-exposure_2.yaml
+./poc/redis/redis-config-write.yaml
 ./poc/redis/redis-config.yaml
 ./poc/redis/redis-config_1.yaml
 ./poc/redis/redis-config_1_1.yaml
@@ -1031337,6 +1031369,7 @@
 ./poc/redis/redis-config_3_1.yaml
 ./poc/redis/redis-config_4.yaml
 ./poc/redis/redis-config_5.yaml
+./poc/redis/redis-cve-2022-0543-sandbox-escape.yaml
 ./poc/redis/redis-default-logins-6379.yaml
 ./poc/redis/redis-default-logins.yaml
 ./poc/redis/redis-default-logins_1.yaml
@@ -1031393,6 +1031426,7 @@
 ./poc/redis/redis-info_1.yaml
 ./poc/redis/redis-info_2.yaml
 ./poc/redis/redis-info_3.yaml
+./poc/redis/redis-lua-rce.yaml
 ./poc/redis/redis-missing-auth.yaml
 ./poc/redis/redis-missing-auth_2.yaml
 ./poc/redis/redis-pass-brute.yaml
@@ -1031409,6 +1031443,7 @@
 ./poc/redis/redis-server_1.yaml
 ./poc/redis/redis-server_2.yaml
 ./poc/redis/redis-server_3.yaml
+./poc/redis/redis-unauthenticated-access.yaml
 ./poc/redis/redis-unauthorized.yaml
 ./poc/redis/redis-weak-credentials.yaml
 ./poc/redis/redis-weak-login.yaml
@@ -1044168,6 +1044203,7 @@
 ./poc/remote_code_execution/pi-woocommerce-order-date-time-and-type_2.yaml
 ./poc/remote_code_execution/pi-woocommerce-order-date-time-and-type_3.yaml
 ./poc/remote_code_execution/pi_woocommerce_order_date_time_and_type-f19006a0-6848-467b-90ed-33b3ebd2c7ba.yaml
+./poc/remote_code_execution/pickle-deserialization-rce.yaml
 ./poc/remote_code_execution/pinterest-for-woocommerce.yaml
 ./poc/remote_code_execution/pinterest-for-woocommerce_1.yaml
 ./poc/remote_code_execution/pinterest-for-woocommerce_1_1.yaml
@@ -1045490,6 +1045526,7 @@
 ./poc/remote_code_execution/recently-viewed-most-viewed-and-sold-products-for-woocommerce_2.yaml
 ./poc/remote_code_execution/recently_viewed_most_viewed_and_sold_products_for_woocommerce-26153183-45f1-4694-94ec-f547f1b99089.yaml
 ./poc/remote_code_execution/recoverexit_for_woocommerce-10552714-c8fb-455c-ad61-c0ef2db4b69f.yaml
+./poc/remote_code_execution/redis-lua-rce.yaml
 ./poc/remote_code_execution/refund_request_for_woocommerce-f15b4596-8e00-4e66-8b51-f49ede1ff307.yaml
 ./poc/remote_code_execution/registration_form_for_woocommerce-a13c364f-bf86-41a9-b56e-949af38c01c6.yaml
 ./poc/remote_code_execution/registration_form_for_woocommerce-e993e724-c27d-4724-b2b1-fcbae9e761b7.yaml
@@ -1048449,6 +1048486,7 @@
 ./poc/remote_code_execution/weight-based-shipping-for-woocommerce_3.yaml
 ./poc/remote_code_execution/weight-based-shipping-for-woocommerce_4.yaml
 ./poc/remote_code_execution/weight_based_shipping_for_woocommerce-b5086b8d-6c74-4970-9937-5ddc5b528495.yaml
+./poc/remote_code_execution/werkzeug-debug-console-rce.yaml
 ./poc/remote_code_execution/whatscart-for-woocommerce-930666208c70174c76d35ae392bef26a.yaml
 ./poc/remote_code_execution/whatscart-for-woocommerce-930666208c70174c76d35ae392bef26a_1.yaml
 ./poc/remote_code_execution/whatscart-for-woocommerce-930666208c70174c76d35ae392bef26a_2.yaml
@@ -1055663,6 +1055701,7 @@
 ./poc/sap/sap-redirect_5.yaml
 ./poc/sap/sap-redirect_6.yaml
 ./poc/sap/sap-redirect_7.yaml
+./poc/sap/sap-redirect_nagli.yaml
 ./poc/sap/sap-router-detect.yaml
 ./poc/sap/sap-router-detect_1.yaml
 ./poc/sap/sap-router-detect_2.yaml
@@ -1056701,6 +1056740,7 @@
 ./poc/search/admin-file-search_1.yaml
 ./poc/search/admin-file-search_1_1.yaml
 ./poc/search/admin-file-search_2.yaml
+./poc/search/advance-product-search.yaml
 ./poc/search/advance-search-2abe0baaa73e3455f14a7d9a88b9b5f6.yaml
 ./poc/search/advance-search-2abe0baaa73e3455f14a7d9a88b9b5f6_1.yaml
 ./poc/search/advance-search-2abe0baaa73e3455f14a7d9a88b9b5f6_2.yaml
@@ -1093087,6 +1093127,7 @@
 ./poc/sql/divebook-f7c3b9091ad035ca23dc231fdbd56158_2.yaml
 ./poc/sql/divebook-f7c3b9091ad035ca23dc231fdbd56158_3.yaml
 ./poc/sql/diza-7ed01b31-fef2-49c2-9c5e-45d80e7dbcff.yaml
+./poc/sql/django-orm-sqli-order-by.yaml
 ./poc/sql/dl-leadback-34e1897dbdda5374d21bd2d212607582.yaml
 ./poc/sql/dl-leadback-34e1897dbdda5374d21bd2d212607582_1.yaml
 ./poc/sql/dl-leadback-34e1897dbdda5374d21bd2d212607582_3.yaml
@@ -1104553,6 +1104594,7 @@
 ./poc/sql/redirection-2db86ec31f7b4c730a12b0c202be11db_1.yaml
 ./poc/sql/redirection-2db86ec31f7b4c730a12b0c202be11db_3.yaml
 ./poc/sql/redirection-8fd13b18-63e6-4af2-a224-d87ad3a70dba.yaml
+./poc/sql/redis-cve-2022-0543-sandbox-escape.yaml
 ./poc/sql/redmine-db-config.yaml
 ./poc/sql/redmine-db-config_1.yaml
 ./poc/sql/redmine-db-config_1_1.yaml
@@ -1107223,6 +1107265,7 @@
 ./poc/sql/sqli-error-based.yaml
 ./poc/sql/sqli-error-based_1.yaml
 ./poc/sql/sqli-error-based_3.yaml
+./poc/sql/sqli-json-body-differential.yaml
 ./poc/sql/sqli-symfony.yaml
 ./poc/sql/sqli-symfony_1.yaml
 ./poc/sql/sqli-symfony_1_1.yaml
@@ -1107232,6 +1107275,7 @@
 ./poc/sql/sqli-vuln-params_1.yaml
 ./poc/sql/sqli-vuln-params_2.yaml
 ./poc/sql/sqli-vuln-params_3.yaml
+./poc/sql/sqli-waf-bypass-inline-comment.yaml
 ./poc/sql/sqli.yaml
 ./poc/sql/sqli.yml
 ./poc/sql/sqli2.yaml
@@ -1117160,6 +1117204,7 @@
 ./poc/sql_injection/discuz-v72-sqli.yaml
 ./poc/sql_injection/discuz-v72-sqli.yml
 ./poc/sql_injection/discuz-v72-sqli_1.yaml
+./poc/sql_injection/django-orm-sqli-order-by.yaml
 ./poc/sql_injection/doc-cms-keyword-sql-injection.yaml
 ./poc/sql_injection/docId_SQL.yaml
 ./poc/sql_injection/docId_SQL_1.yaml
@@ -1119515,6 +1119560,7 @@
 ./poc/sql_injection/sqli-error-based.yaml
 ./poc/sql_injection/sqli-error-based_1.yaml
 ./poc/sql_injection/sqli-error-based_3.yaml
+./poc/sql_injection/sqli-json-body-differential.yaml
 ./poc/sql_injection/sqli-symfony.yaml
 ./poc/sql_injection/sqli-symfony_1.yaml
 ./poc/sql_injection/sqli-symfony_1_1.yaml
@@ -1119524,6 +1119570,7 @@
 ./poc/sql_injection/sqli-vuln-params_1.yaml
 ./poc/sql_injection/sqli-vuln-params_2.yaml
 ./poc/sql_injection/sqli-vuln-params_3.yaml
+./poc/sql_injection/sqli-waf-bypass-inline-comment.yaml
 ./poc/sql_injection/sqli.yaml
 ./poc/sql_injection/sqli.yml
 ./poc/sql_injection/sqli2.yaml
@@ -1122077,6 +1122124,7 @@
 ./poc/ssrf/ssrf-vuln-params_1.yaml
 ./poc/ssrf/ssrf-vuln-params_2.yaml
 ./poc/ssrf/ssrf-vuln-params_3.yaml
+./poc/ssrf/ssrf-waf-bypass-ip-encoding.yaml
 ./poc/ssrf/ssrf.yaml
 ./poc/ssrf/ssrf.yml
 ./poc/ssrf/ssrf1.yaml
@@ -1191379,6 +1191427,7 @@
 ./poc/xml_external_entity/xxe-vuln-params_2.yaml
 ./poc/xml_external_entity/xxe-vuln-params_3.yaml
 ./poc/xml_external_entity/xxe-xinclude-retrieve-files.yaml
+./poc/xml_external_entity/xxe-xml-body-file-read.yaml
 ./poc/xml_external_entity/xxe.yaml
 ./poc/xml_external_entity/xxe.yml
 ./poc/xml_external_entity/xxe1.yaml
@@ -1194140,6 +1194189,7 @@
 ./poc/xss/uncode_xss.yaml
 ./poc/xss/uncode_xss_1.yaml
 ./poc/xss/uncode_xss_2.yaml
+./poc/xss/unicode-normalization-xss-bypass.yaml
 ./poc/xss/universal-media-xss.yaml
 ./poc/xss/universal-media-xss_1.yaml
 ./poc/xss/universal-media-xss_1_1.yaml
@@ -1194881,6 +1194931,7 @@
 ./poc/xss/xss-vuln-params_1.yaml
 ./poc/xss/xss-vuln-params_2.yaml
 ./poc/xss/xss-vuln-params_3.yaml
+./poc/xss/xss-waf-bypass-svg-onload.yaml
 ./poc/xss/xss-xsstrike.yaml
 ./poc/xss/xss-xsstrike_1.yaml
 ./poc/xss/xss-xsstrike_2.yaml
