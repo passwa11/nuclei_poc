@@ -661313,6 +661313,7 @@
 ./poc/cve/CVE-2026-1088-login_page_editor-f428b90d-8830-445d-b1f1-d8f860dae5cf.yaml
 ./poc/cve/CVE-2026-109191-image_hub-99d1e0cc-1fd0-47f7-8b73-33663ed72eea.yaml
 ./poc/cve/CVE-2026-109193-hivepress-d2c3752b-0d2f-402d-bdbf-fb3fd76cf558.yaml
+./poc/cve/CVE-2026-109198-cleantalk_spam_protect-93cf8a35-61a4-4998-ae34-86c96898e30f.yaml
 ./poc/cve/CVE-2026-109207-feedzy_rss_feeds-ab1d8bcb-688a-4763-970a-c960925cf0b6.yaml
 ./poc/cve/CVE-2026-109208-learnpress-4ac1ddf0-9164-45a8-b1dc-e684b1b4b447.yaml
 ./poc/cve/CVE-2026-109219-mangboard-1e4f4860-b4c9-4f41-b1d0-0b2da8c88b99.yaml
@@ -661424,6 +661425,7 @@
 ./poc/cve/CVE-2026-11454-groundhogg-7fe3d251-4edf-4d94-a946-0aa918135784.yaml
 ./poc/cve/CVE-2026-114570-wordpress-92babbbf-74bd-474f-9057-c5022a7d64c7.yaml
 ./poc/cve/CVE-2026-11496-woo_pdf_invoice_builder-5e3e7c1a-a9c0-4e92-868c-5785d891cf8f.yaml
+./poc/cve/CVE-2026-115497-music_store-31e41b8c-f83f-4cd7-a30f-deac6154c7e3.yaml
 ./poc/cve/CVE-2026-11551-branda_white_labeling-56f13af3-71b6-42d4-9fda-a75778f32091.yaml
 ./poc/cve/CVE-2026-11562-ws_form-90c774a5-e315-4671-a21b-ccfd1b1346ac.yaml
 ./poc/cve/CVE-2026-11563-word_count_and_social_shares-6f4b15f4-9002-4cae-9d69-f327b8e67914.yaml
@@ -848845,6 +848847,7 @@
 ./poc/other/cleantalk_spam_protect-7fe50510-6736-4bcf-b62f-0b8d2cb8ff3a_1.yaml
 ./poc/other/cleantalk_spam_protect-89dab433-91e9-4500-ab40-f4b500e66983.yaml
 ./poc/other/cleantalk_spam_protect-89dab433-91e9-4500-ab40-f4b500e66983_1.yaml
+./poc/other/cleantalk_spam_protect-93cf8a35-61a4-4998-ae34-86c96898e30f.yaml
 ./poc/other/cleantalk_spam_protect-c3a80bcd-170b-469b-b090-8f806f87b8d7.yaml
 ./poc/other/cleantalk_spam_protect-cb603be6-4a12-49e1-b8cc-b2062eb97f16.yaml
 ./poc/other/cleantalk_spam_protect-d7eb5fad-bb62-4f0b-ad52-b16c3e442b62.yaml
@@ -957637,6 +957640,7 @@
 ./poc/other/prime_mover-1b9bebab-e0e4-4f54-b297-aec0dcecf13e.yaml
 ./poc/other/prime_mover-75410bb1-ab77-45cb-a83d-3515092658ab.yaml
 ./poc/other/prime_mover-806d3919-7a10-43f3-9c68-ce38ba359a35.yaml
+./poc/other/prime_mover-ab6ebd66-c7a4-402e-b51e-3f1f3183bd97.yaml
 ./poc/other/primer-mydata-3461d1f8e3eae2e8ca18d50e37af91ca.yaml
 ./poc/other/primer-mydata-3461d1f8e3eae2e8ca18d50e37af91ca_1.yaml
 ./poc/other/primer-mydata-3461d1f8e3eae2e8ca18d50e37af91ca_2.yaml
@@ -965242,6 +965246,7 @@
 ./poc/other/redcap-install-module(1)_3.yaml
 ./poc/other/redcap-install-module.yaml
 ./poc/other/redcap-install-module_1.yaml
+./poc/other/redcap.yaml
 ./poc/other/redcarpet.yaml
 ./poc/other/reddit-phish.yaml
 ./poc/other/reddit-phish_1.yaml
