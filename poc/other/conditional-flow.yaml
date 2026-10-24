@@ -14,7 +14,8 @@ dns:
     matchers:
       - type: word
         words:
-          - "ghost.io"
+          - ".vercel-dns.com"
+        internal: true
 
 http:
   - method: GET
@@ -24,4 +25,4 @@ http:
     matchers:
       - type: word
         words:
-          - "ghost.io"
+          - "html>"
