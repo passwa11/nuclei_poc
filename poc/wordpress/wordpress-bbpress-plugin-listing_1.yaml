@@ -5,11 +5,8 @@ info:
   author: dhiyaneshDK
   severity: info
   description: Searches for sensitive directories present in the bbpress wordpress plugin.
-  reference:
-    - https://www.exploit-db.com/ghdb/6158
-  tags: wordpress,listing,plugin,edb
-  metadata:
-    max-request: 1
+  reference: https://www.exploit-db.com/ghdb/6158
+  tags: wordpress,listing,plugin
 
 http:
   - method: GET

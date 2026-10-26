@@ -12,10 +12,8 @@ info:
     cvss-score: 6.1
     cwe-id: CWE-601
   tags: redirect,wordpress
-  metadata:
-    max-request: 1
 
-http:
+requests:
   - method: GET
     path:
       - '{{BaseURL}}/wp-content/plugins/gtranslate/url_addon/gtranslate.php?glang=en&gurl=/www.pluginvulnerabilities.com'

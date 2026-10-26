@@ -16,7 +16,7 @@ info:
     shodan-query:
       - html:"https://github.com/requests/httpbin"
       - title:"httpbin.org"
-  tags: redirect,httpbin,oss,vuln
+  tags: redirect,httpbin,oss
 
 http:
   - method: GET
@@ -32,4 +32,5 @@ http:
       - type: status
         status:
           - 302
-# digest: 4b0a004830460221009f12b862e6e615be303736e33591f556e8e5634a6a0d80a669ed1b135bfa9dca022100a5f34442445f51685ecdcdcb4f164318de04c8716b3d62e032622ab8f6c11e65:922c64590222798bb761d5b6d8e72950
+
+# digest: 490a00463044021f2a0871ef1ab5ffecbc7a8ed71d0ec24df43090c867118c30ab9b3786e4668a022100b8d85ca6119eaee90332bd430d35158462917b4cb28a3088b964739b12f534ca:922c64590222798bb761d5b6d8e72950

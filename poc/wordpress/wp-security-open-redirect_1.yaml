@@ -15,11 +15,10 @@ info:
     cvss-score: 6.1
     cwe-id: CWE-601
   metadata:
-    max-request: 1
     verified: true
   tags: wp-plugin,redirect,wordpress,wp,wpscan
 
-http:
+requests:
   - method: GET
     path:
       - "{{BaseURL}}/?aiowpsec_do_log_out=1&after_logout=https://interact.sh"

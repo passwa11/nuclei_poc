@@ -13,11 +13,10 @@ info:
     cvss-score: 6.8
     cwe-id: CWE-918
   metadata:
-    max-request: 1
     shodan-query: http.favicon.hash:1550906681
   tags: ssrf,oast,openbmcs,edb
 
-http:
+requests:
   - raw:
       - |
         POST /php/query.php HTTP/1.1

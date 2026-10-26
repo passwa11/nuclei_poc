@@ -12,9 +12,9 @@ info:
     cvss-metrics: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N
     cvss-score: 5.3
     cwe-id: CWE-200
+  tags: hackerone,config,exposure,sharepoint
   metadata:
     max-request: 1
-  tags: hackerone,config,exposure,sharepoint,vuln
 
 http:
   - method: GET
@@ -33,4 +33,5 @@ http:
       - type: status
         status:
           - 200
-# digest: 4b0a00483046022100ae7108e1376a75c88cf16d6aecd7a1fb581e5920be65cd05742b5999272bd2740221009e9692e3082ba381fae9636405cbddbf795541f44316fef88f55fc0743a2cf11:922c64590222798bb761d5b6d8e72950
+
+# Enhanced by cs on 2023/02/13
