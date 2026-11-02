@@ -660968,6 +660968,7 @@
 ./poc/cve/CVE-2026-102399-gallery_by_supsystic-c3ec1155-a055-4eb2-8c6a-cae591ad6f87.yaml
 ./poc/cve/CVE-2026-102401-download_manager-4f5985b0-0e6c-4dd8-b5f8-53be62adc8dd.yaml
 ./poc/cve/CVE-2026-102402-tlp_team-a6c976fd-c35c-40ac-8151-565a7dd746ca.yaml
+./poc/cve/CVE-2026-102435-ultimate_addons_for_contact_form_7-187777a4-3438-489c-ad3b-7e16753189d6.yaml
 ./poc/cve/CVE-2026-102489.yaml
 ./poc/cve/CVE-2026-102499-modern_events_calendar-6783c8a4-01a8-45be-97c5-7c8e0c9ac58d.yaml
 ./poc/cve/CVE-2026-102499-modern_events_calendar_lite-6783c8a4-01a8-45be-97c5-7c8e0c9ac58d.yaml
@@ -674311,6 +674312,7 @@
 ./poc/cve/CVE-2026-8653-masterstudy_lms_learning_management_system_pro-f24749a8-e01d-436a-9ec8-3745a6b5eecf.yaml
 ./poc/cve/CVE-2026-86583-import_users_from_csv_with_meta-5b0f3444-4c10-45ce-a00b-4ed6038b8846.yaml
 ./poc/cve/CVE-2026-86591-botiga_pro-ee2d7d01-da87-43b4-8d2b-2c9eef3c80e6.yaml
+./poc/cve/CVE-2026-86596-s2member-bbe64cd3-c5ca-4867-90de-4784510a1126.yaml
 ./poc/cve/CVE-2026-86601-wp_recipe_maker-929bb635-0d1c-423e-ac39-2fec4c19f862.yaml
 ./poc/cve/CVE-2026-86602-wp_recipe_maker-7a26c1ee-4934-405e-b7ba-09adf543f1a8.yaml
 ./poc/cve/CVE-2026-86603-wp_recipe_maker-249cd9db-dd30-44e5-9c02-65a15cfbce8e.yaml
@@ -920137,6 +920139,7 @@
 ./poc/other/lanforge.yaml
 ./poc/other/lang-chao-fu-wu-qilpmi-guan-li-kou.yaml
 ./poc/other/lang-chao-fu-wu-qilpmi-guan-li-kou_3.yaml
+./poc/other/langchain-chatchat.yaml
 ./poc/other/langchain.yaml
 ./poc/other/langchain_2.yaml
 ./poc/other/langchain_3.yaml
@@ -973193,6 +973196,7 @@
 ./poc/other/s2member-ab4b37ff0c3e8089c5da5a9af2eb7cb7.yaml
 ./poc/other/s2member-ab4b37ff0c3e8089c5da5a9af2eb7cb7_2.yaml
 ./poc/other/s2member-ab4b37ff0c3e8089c5da5a9af2eb7cb7_3.yaml
+./poc/other/s2member-bbe64cd3-c5ca-4867-90de-4784510a1126.yaml
 ./poc/other/s2member-e87da8fa-04cc-4b9a-9dde-be7d4f2bd76e.yaml
 ./poc/other/s2member-ffc6de82-a4c1-4125-9be0-4fb6de42c178.yaml
 ./poc/other/s2member-pro-1fed5f64a734bc2ab355ffa151d640c8.yaml
@@ -1006808,6 +1006812,7 @@
 ./poc/other/ultimate_addons_for_beaver_builder_lite-b7c808ff-546b-445e-af38-0b45cab3f307.yaml
 ./poc/other/ultimate_addons_for_contact_form_7-015942ef-fb6c-4b58-ab67-f7e903321f32.yaml
 ./poc/other/ultimate_addons_for_contact_form_7-1723a465-75ca-4fea-ad9c-d96ffb5625a8.yaml
+./poc/other/ultimate_addons_for_contact_form_7-187777a4-3438-489c-ad3b-7e16753189d6.yaml
 ./poc/other/ultimate_addons_for_contact_form_7-29b9d978-f8b0-48f9-a10e-7e61a4f4a828.yaml
 ./poc/other/ultimate_addons_for_contact_form_7-2be06087-4616-47bb-8a33-3bba97c47cb2.yaml
 ./poc/other/ultimate_addons_for_contact_form_7-364946a5-ce1e-4872-895d-e7cf795a04f7.yaml
