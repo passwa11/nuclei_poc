@@ -879121,6 +879121,7 @@
 ./poc/other/email_reminders-a0adfd13-a9f1-4bec-96ec-6a51cd08e4ea_1.yaml
 ./poc/other/email_reminders-c9fd7c6b-9ba3-4e27-9b3d-8b1fbcc5e26f.yaml
 ./poc/other/email_reminders-c9fd7c6b-9ba3-4e27-9b3d-8b1fbcc5e26f_1.yaml
+./poc/other/email_security_gateway.yaml
 ./poc/other/email_shortcode-c7b5e028-d4ea-4f6d-aee1-0e9661853d43.yaml
 ./poc/other/email_shortcode-c7b5e028-d4ea-4f6d-aee1-0e9661853d43_1.yaml
 ./poc/other/email_subscribe-033f8b21-6c5a-433f-b60d-5509fb203234.yaml
