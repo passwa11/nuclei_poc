@@ -9,7 +9,7 @@ info:
   severity: low
   tags: ojs,redirect
 
-http:
+requests:
   - method: GET
     path:
       - "{{BaseURL}}/index.php/index/user/setLocale/NEW_LOCALE?source=@example.com"

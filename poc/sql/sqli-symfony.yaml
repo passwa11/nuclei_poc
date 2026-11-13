@@ -6,7 +6,7 @@ info:
   severity: high
   tags: sqli
 
-http:
+requests:
   - method: GET
     path:
       - "{{BaseURL}}/app_dev.php/1'%20%22"
