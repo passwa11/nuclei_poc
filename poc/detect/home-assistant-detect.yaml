@@ -8,7 +8,7 @@ info:
     shodan-query: http.title:"Home Assistant"
   tags: tech,iot
 
-http:
+requests:
   - method: GET
     path:
       - "{{BaseURL}}"
