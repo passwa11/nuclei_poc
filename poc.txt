@@ -822213,6 +822213,7 @@
 ./poc/other/alert_box_block-d63cd13e-4a16-483f-8165-6c8090ceebab_1.yaml
 ./poc/other/alert_me-541cb2b1-1657-4f26-932f-c32bd51ad970.yaml
 ./poc/other/alert_me-541cb2b1-1657-4f26-932f-c32bd51ad970_1.yaml
+./poc/other/alerta.yaml
 ./poc/other/alex-reservations-962371e7eed489cb8effcce0bc79fdf1.yaml
 ./poc/other/alex-reservations-962371e7eed489cb8effcce0bc79fdf1_1.yaml
 ./poc/other/alex-reservations-962371e7eed489cb8effcce0bc79fdf1_2.yaml
@@ -948831,6 +948832,7 @@
 ./poc/other/openexchangerates-csp-bypass_1.yaml
 ./poc/other/openexchangerates-csp-bypass_2.yaml
 ./poc/other/openexchangerates-csp-bypass_3.yaml
+./poc/other/openfga.yaml
 ./poc/other/openfiler.yaml
 ./poc/other/openfiler_2.yaml
 ./poc/other/openfiler_3.yaml
@@ -978097,6 +978099,7 @@
 ./poc/other/secure_custom_fields-e85a6a5c-f33e-4d49-9662-8bff5d296830.yaml
 ./poc/other/secure_downloads-74506798-a198-4ea8-8628-01ce4df27abe.yaml
 ./poc/other/secure_files-2fd7d6af-a938-4106-aed2-12b9a5454da9.yaml
+./poc/other/secure_firewall_management_center.yaml
 ./poc/other/secure_html5_video_player-4d2b8bc2-68c2-40aa-b8b0-a0584549f303.yaml
 ./poc/other/securelinx_spider_firmware.yaml
 ./poc/other/securelinx_spider_firmware_1.yaml
@@ -997763,6 +997766,7 @@
 ./poc/other/t5000-malware_2.yaml
 ./poc/other/t5000-malware_3.yaml
 ./poc/other/t_countdown-23a0dcdf-e98f-4e24-9900-49ca522b8038.yaml
+./poc/other/t_plus.yaml
 ./poc/other/tab-and-link-manager.yaml
 ./poc/other/tab-and-link-manager_2.yaml
 ./poc/other/tab-and-link-manager_3.yaml
